@@ -1,8 +1,10 @@
 from conners_munch import Conveyor
 from izzys_scoop import Intake
+from main import con_conner
+from pprint import pprint
 
 # an agency is born
-conner = Conveyor('conner')
+conner = Conveyor(**con_conner)
 izzy = Intake('izzy')
 
 

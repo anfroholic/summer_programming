@@ -1,7 +1,7 @@
 
 class Agent:
-    def __init__(self, superspy):
-        self.name = superspy
+    def __init__(self, name, **nomnom):
+        self.name = name
 
     def __str__(self):
         return f"nice to meet you comrade I am {self.name}, I am a {self.__class__.__name__}"
