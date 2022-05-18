@@ -17,6 +17,15 @@ con_conner = {
     'munch': 24
 }
 
+fake_conner = {
+    'name': 'connor',
+    'burp': 24,
+    'flush': .17,
+    'munch': 29
+}
+
+izzy = 'this is a super duper extremely long string'
+
 def house(bed):
     return f'house > {bed} < house'
 

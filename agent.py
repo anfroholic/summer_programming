@@ -10,4 +10,4 @@ class Agent:
         pass
 
     def rez(self):
-        pass
+        print(vars(self))
