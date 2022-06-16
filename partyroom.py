@@ -1,7 +1,10 @@
-import main
 from rooms.conners_munch import Conveyor
 from rooms.izzys_scoop import Intake
-from main import con_conner
+from config import con_conner, fake_conner
+from agent import m
+from MaysMotors import Motor
+
+from pprint import pprint
 
 '''
 Inheritance  IS_A
@@ -17,22 +20,29 @@ conner --> motor_1
 
 
 # an agency is born
-fake_conner = Conveyor(**main.fake_conner)
+fake_conner = Conveyor(**fake_conner)
 conner = Conveyor(**con_conner)
-izzy = Intake('izzy', fake_conner)
+izzy = Intake('izzy', conner)
 
 
 if __name__ == '__main__':
-    agents = [izzy,conner]
+    m.find_outputs()
 
-    for agent in agents:
-        print(agent.name)
+    # m.talk()
+    # m.check()
+    # m.rez()
+    # pprint(m.agents_dict)
+    # for name, agent in m.agents_dict.items():
+    #     print(f"{name = }")
+    #     print(f"{agent = }")
+
+    # for name, value in vars(conner).items():
+    #     print(name, value)
+    #     if isinstance(value, Motor):
+    #         print(f"found motor {name}")
 
 
-    for agent in agents:
-        print(agent)
-        agent.check()
-        agent.rez()
+
 
 
 

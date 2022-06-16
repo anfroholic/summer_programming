@@ -11,3 +11,6 @@ class Intake(Agent):
     def call(self):
         self.conner.talk()
 
+    def check(self):
+        super().check()
+        self.call()

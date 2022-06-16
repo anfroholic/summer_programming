@@ -10,20 +10,6 @@ double_panda = make_anon(3)
 
 dude = {'car': 1, 'motor': 2, 'three': 3, 'x': 102.233}
 
-con_conner = {
-    'name': 'conner',
-    'burp': 14,
-    'flush': .7,
-    'munch': 24
-}
-
-fake_conner = {
-    'name': 'connor',
-    'burp': 24,
-    'flush': .17,
-    'munch': 29
-}
-
 izzy = 'this is a super duper extremely long string'
 
 def house(bed):
