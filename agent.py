@@ -1,4 +1,4 @@
-from MaysMotors import Motor
+from mm_motors import MM_Motor, MM_Output
 
 class Agent:
     def __init__(self, name, **nomnom):
@@ -41,12 +41,22 @@ class CEO:
             agent.rez()
 
     def find_outputs(self):
+        outputs = (MM_Motor, MM_Output)
         for agent in self.agents:
-            for name, value in vars(agent).items():
+            for name, value in vars(agent).items():  # (name, value) = (k, v) --> (key, value)
                 print(name, value)
-                if isinstance(value, Motor):
+                if isinstance(value, outputs):
                     print(f"found {name}")
                     self.outputs.append(value)
+
+
+    def outputs_set(self):
+        print(self.outputs)
+        for each_output in self.outputs:
+            print(each_output)
+            each_output._set()
+
+
 
 
 

@@ -1,12 +1,13 @@
 from agent import Agent
-from MaysMotors import Motor
+from mm_motors import MM_Motor, MM_Output
 from rooms.conners_munch import Conveyor
 
 class Intake(Agent):
     def __init__(self, name: str, conner: Conveyor):
         super().__init__(name)
-        self.motor_1 = Motor('Izzy')
+        self.motor_1 = MM_Motor('Izzy')
         self.conner = conner
+        self.light = MM_Output('Izzy', False, 1)
 
     def call(self):
         self.conner.talk()
@@ -14,3 +15,5 @@ class Intake(Agent):
     def check(self):
         super().check()
         self.call()
+
+
