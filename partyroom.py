@@ -2,6 +2,7 @@ from rooms.conners_munch import Conveyor
 from rooms.izzys_scoop import Intake
 from config import con_conner, fake_conner
 from agent import m
+
 from mm_motors import MM_Motor
 
 from pprint import pprint
@@ -24,6 +25,7 @@ fake_conner = Conveyor(**fake_conner)
 conner = Conveyor(**con_conner)
 izzy = Intake('izzy', conner)
 
+
 def robot_init():
     m.find_outputs()
 
@@ -34,15 +36,19 @@ def teleop_periodic():
     m.outputs_set()
 
 
+
 if __name__ == '__main__':
     robot_init()
-    teleop_periodic()
+    #teleop_periodic()
 
-
+    # pprint(m.outputs)
+    print('******************')
+    # pprint(m.agents)
+    m.check()
 
     # m.talk()
     # m.check()
-    # m.rez()
+    m.rez()
     # pprint(m.agents_dict)
     # for name, agent in m.agents_dict.items():
     #     print(f"{name = }")

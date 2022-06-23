@@ -12,3 +12,12 @@ fake_conner = {
     'munch': 29
 }
 
+# agents = {
+#    'conner ': {
+#         'self': conner,
+#         'outputs': []
+#     }
+#
+# }
+
+# self.agents_dict['conner']['self'].check()s

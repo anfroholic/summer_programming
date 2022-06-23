@@ -3,12 +3,12 @@ from mm_motors import MM_Motor, MM_Output
 
 
 class Conveyor(Agent):
-    def __init__(self, **hungry):
-        super().__init__(**hungry)
+    def __init__(self, burp, **kwargs):
+        super().__init__(**kwargs)
         # print(hungry)
-        self.burp = hungry['burp']
-        self.munch = hungry['munch']
-        self.flush = hungry['flush']
+        self.burp = burp
+        self.munch = kwargs['munch']
+        self.flush = kwargs['flush']
         self.motor_1 = MM_Motor('Conners motor')
         self.light = MM_Output('Conner', False, 0)
 
