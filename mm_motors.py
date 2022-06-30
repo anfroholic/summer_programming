@@ -21,7 +21,7 @@ class MM_Output:
         print(f"how are you feeling {state}")
 
     def _set(self):
-        print("something happen :O")
+        print(f"{self.state} is happening  >:0")
 
 
 

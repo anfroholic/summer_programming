@@ -44,20 +44,19 @@ if __name__ == '__main__':
     # pprint(m.outputs)
     print('******************')
     # pprint(m.agents)
-    m.check()
+    # m.check()
 
     # m.talk()
     # m.check()
-    m.rez()
+    # m.rez()
     # pprint(m.agents_dict)
-    # for name, agent in m.agents_dict.items():
+    # for name, agent in m.agents.items():
     #     print(f"{name = }")
     #     print(f"{agent = }")
+    #     print(f'{agent["self"]}')
 
-    # for name, value in vars(conner).items():
-    #     print(name, value)
-    #     if isinstance(value, Motor):
-    #         print(f"found motor {name}")
+    print('*****************')
+    m.outputs_set()
 
 
 
