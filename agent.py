@@ -15,6 +15,9 @@ class Agent:
     def rez(self):
         print(vars(self))
 
+    def __call__(self):
+        print(f'{self.name} hello can you hear me')
+
 
 class CEO:
     def __init__(self, name):
