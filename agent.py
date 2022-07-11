@@ -2,6 +2,14 @@ from mm_motors import MM_Motor, MM_Output
 
 
 class Agent:
+    """
+    Agent's Manifesto
+    1) An agent is in charge of their own destiny
+    2) An Agent does not touch another Agent's variables (it is considered rude!)
+    3) ALL agents must report to M, pronto!
+    """
+
+
     def __init__(self, name, **nomnom):
         self.name = name
         m.add_agent(name, self)  # add self to m's dictionary
@@ -17,6 +25,9 @@ class Agent:
 
     def __call__(self):
         print(f'{self.name} hello can you hear me')
+
+    def __repr__(self):
+        return f'OG_{self.name}'
 
 
 class CEO:

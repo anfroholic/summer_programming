@@ -22,7 +22,6 @@ class Conveyor(Agent):
 
     def set_motors(self):
         self.motor_1.set(self.flush)
-        self.motor_1._set(self.flush)
 
     def test(self):
         print('testing')
@@ -35,5 +34,8 @@ class Conveyor(Agent):
 
     def check(self):
         self.states[self.state]()
+
+    def __len__(self):
+        return 0
 
 

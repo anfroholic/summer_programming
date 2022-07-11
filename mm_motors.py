@@ -10,6 +10,9 @@ class MM_Motor:
     def _set(self):
         print(f'actually setting motor to {self.speed}')
 
+    def __repr__(self):
+        return f'the real {self.name} motor'
+
 class MM_Output:
     def __init__(self, name: str, state: bool, pin: int):
         self.name = name
@@ -22,6 +25,9 @@ class MM_Output:
 
     def _set(self):
         print(f"{self.state} is happening  >:0")
+
+    def __repr__(self):
+        return f"{self.name} real outputs"
 
 
 
