@@ -1,13 +1,10 @@
 from rooms.conners_munch import Conveyor
 from rooms.izzys_scoop import Intake
 from config import con_conner, fake_conner
-from agent import m
+from mustache.agent import m
 from rooms.driver import Driver
 from rooms.wally_storage import Wheels
-
-from mm_motors import MM_Motor
-
-from pprint import pprint
+from mustache.auto import Autonomous
 
 '''
 Inheritance  IS_A
@@ -30,34 +27,32 @@ conner = Conveyor(driver=driver, **con_conner)
 izzy = Intake(name='izzy', conner=conner, driver=driver)
 wally = Wheels(name="wally", driver=driver)
 
-test_auto = [
-    dict(cmd=wally.drive, speed=.5, turn=.5),
-    dict(cmd=izzy.motor_1.set, speed=.5),
-    {"cmd": izzy.motor_1.set, "speed": 0},
-    {"lambda": lambda: conner.__len__() > 5},
-    dict(cmd=wally.drive, speed=.5, turn=.5),
-    dict(cmd=izzy.motor_1.set, speed=.5),
-    {"cmd": izzy.motor_1.set, "speed": 0}
-]
-t1 = [
-    dict(cmd=wally.drive, speed=.5, turn=.5),
-    dict(cmd=izzy.motor_1.set, speed=.5),
-    {"cmd": izzy.motor_1.set, "speed": 0},
-    {"lambda": lambda: conner.__len__() > 5},
-    dict(cmd=wally.drive, speed=.5, turn=.5),
-    dict(cmd=izzy.motor_1.set, speed=.5),
-    {"cmd": izzy.motor_1.set, "speed": 0}
-]
 
-ta = {**test_auto, **t1}
+timmy = 4
+
+ta = [
+    dict(cmd=wally.drive, speed=.5, turn=.5),
+    dict(cmd=izzy.motor_1.set, speed=.5),
+    {"cmd": izzy.motor_1.set, "speed": 0},
+    {"lambda": lambda: timmy > 5},
+    dict(cmd=wally.drive, speed=.5, turn=.5),
+    dict(cmd=izzy.motor_1.set, speed=.5),
+    {"cmd": izzy.motor_1.set, "speed": 0}
+]
+# t1 = [
+#     dict(cmd=wally.drive, speed=.5, turn=.5),
+#     dict(cmd=izzy.motor_1.set, speed=.5),
+#     {"cmd": izzy.motor_1.set, "speed": 0},
+#     {"lambda": lambda: conner.__len__() > 5},
+#     dict(cmd=wally.drive, speed=.5, turn=.5),
+#     dict(cmd=izzy.motor_1.set, speed=.5),
+#     {"cmd": izzy.motor_1.set, "speed": 0}
+# ]
+#
+
 
 def run(books: list[dict[any]]):
     print(books)
-    for line in books:
-        if 'cmd' in line:
-            callit(**line)
-        else:
-            print(line["lambda"]())
 
 
 def callit(cmd, **kwargs):
@@ -96,21 +91,47 @@ if __name__ == '__main__':
     print('******************')
     # m.outputs_set()
 
-    print(buttons)
+    # print(buttons)
+    #
+    # cool = {}
+    # for count, button in enumerate(buttons, 1):
+    #     cool[button] = count
+    #
+    # print(cool)
+    #
+    # the_coolest = {button: count for count, button in enumerate(buttons, 1)}
+    #
+    # axiss = ["l_stick_x", "l_stick_y", "l_trig", "r_trig", "r_stick_x", "r_stick_y"]
+    # most_cool = {axis: count for count, axis in enumerate(axiss, 0)}
+    #
+    # print(the_coolest)
+    #
+    # print('***********************')
+    # run(test_auto)
+    #
+    # phonecall = input("is the question")
+    # print(phonecall)
+    # if phonecall == "1":
+    #     dance()
+    #
+    # next = input("is the question")
+    # print(next)
+    # print(phonecall + next)\
+    #
+    # def loop():
+    #     while True:
+    #         check_button()
+    #
+    #
+    # while True:
+    #     # in here we just ask human
+    #     text = input('give me input')
+    #     if text == 'dance':
+    #         dance()
+    #     elif text == 'loop':
+    #         loop()
+    name = {'name': 'archie'}
 
-    cool = {}
-    for count, button in enumerate(buttons, 1):
-        cool[button] = count
+    archie = Autonomous()
+    archie.run(ta)
 
-    print(cool)
-
-    the_coolest = {button: count for count, button in enumerate(buttons, 1)}
-
-    axiss = ["l_stick_x", "l_stick_y", "l_trig", "r_trig", "r_stick_x", "r_stick_y"]
-    most_cool = {axis: count for count, axis in enumerate(axiss, 0)}
-
-    print(the_coolest)
-
-    print('***********************')
-
-    run(test_auto)

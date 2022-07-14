@@ -1,5 +1,5 @@
-from agent import Agent
-from mm_motors import MM_Motor, MM_Output
+from mustache.agent import Agent
+from mustache.mm_motors import MM_Motor, MM_Output
 from rooms.driver import Driver
 
 class Wheels(Agent):

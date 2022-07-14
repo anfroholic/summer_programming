@@ -1,4 +1,4 @@
-from mm_motors import MM_Motor, MM_Output
+from mustache.mm_motors import MM_Motor, MM_Output
 
 
 class Agent:
@@ -70,3 +70,6 @@ class CEO:
 
 
 m = CEO('m')
+
+if __name__ == '__main__':
+    print('agent')
