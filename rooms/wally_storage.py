@@ -14,9 +14,9 @@ class Wheels(Agent):
                              state=False,
                              pin=0)
 
-    def drive(self, speed, turn):
+    def drive(self, speed, turn) -> None:
         print(speed, turn)
-
+        return None
 
 
 

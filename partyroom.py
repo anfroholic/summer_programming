@@ -30,14 +30,34 @@ wally = Wheels(name="wally", driver=driver)
 
 timmy = 4
 
+
+def print_it():
+    print('it')
+
+
+it = lambda: 4 > 58
+
+"""
+lambdas
+
+truth table 
+None: next
+True: next
+False: wait
+"""
+
+
 ta = [
-    dict(cmd=wally.drive, speed=.5, turn=.5),
-    dict(cmd=izzy.motor_1.set, speed=.5),
-    {"cmd": izzy.motor_1.set, "speed": 0},
-    {"lambda": lambda: timmy > 5},
-    dict(cmd=wally.drive, speed=.5, turn=.5),
-    dict(cmd=izzy.motor_1.set, speed=.5),
-    {"cmd": izzy.motor_1.set, "speed": 0}
+    # dict(cmd=print_it),
+    # lambda: print('it'),
+    lambda: wally.drive(speed=.5, turn=.5),
+    lambda: izzy.motor_1.set(speed=.5),
+    lambda: izzy.motor_1.set(speed=0),
+    print_it,
+    lambda: timmy > 5,
+    lambda: wally.drive(speed=.5, turn=.5),
+    lambda: izzy.motor_1.set(speed=.5),
+    lambda: izzy.motor_1.set(speed=0)
 ]
 # t1 = [
 #     dict(cmd=wally.drive, speed=.5, turn=.5),
@@ -134,4 +154,5 @@ if __name__ == '__main__':
 
     archie = Autonomous()
     archie.run(ta)
+
 

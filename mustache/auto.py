@@ -14,20 +14,28 @@ class Autonomous:
         self.book = []
 
     def check(self):
-        line = self.book[self.bookmark]
-        if 'cmd' in line:
-            self.bookmark += 1
-            print(line)
-            cmd = line.pop('cmd')
-            print(line)
-            cmd(**line)
-            self.check()
+        func = self.book[self.bookmark]
+        returned = func()
+        # if self.book[self.bookmark]() is False:
+        if returned is False:  # compare
+            return  # leaving
         else:
-            if line['lambda']():
-                self.bookmark += 1
-                self.check()
-            else:
-                print('lambda function', line, line['lambda']())
+            self.bookmark += 1
+            self.check()
+
+        # if 'cmd' in page:
+        #     self.bookmark += 1
+        #     print(page)
+        #     cmd = page.pop('cmd')
+        #     print(page)
+        #     cmd.__call__(**page)
+        #     self.check()
+        # else:
+        #     if page['lambda']():
+        #         self.bookmark += 1
+        #         self.check()
+        #     else:
+        #         print('lambda function', page, page['lambda']())
 
 
 
