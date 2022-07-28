@@ -1,11 +1,11 @@
 from rooms.conners_munch import Conveyor
 from rooms.izzys_scoop import Intake
-from config import con_conner, fake_conner
+import config
 from mustache.agent import m
 from rooms.driver import Driver
 from rooms.wally_storage import Wheels
 from mustache.auto import Autonomous
-
+from pprint import pprint
 '''
 Inheritance  IS_A
 Agent --> Conner  
@@ -22,10 +22,10 @@ buttons = ["a", "b", "x", "y", "l_bum", "r_bum", "ttt", "tl"]
 
 # an agency is born
 driver = Driver(name='driver')
-fake_conner = Conveyor(driver=driver, **fake_conner)
-conner = Conveyor(driver=driver, **con_conner)
-izzy = Intake(name='izzy', conner=conner, driver=driver)
-wally = Wheels(name="wally", driver=driver)
+fake_conner = Conveyor(driver=driver, **config.fake_conner)
+conner = Conveyor(driver=driver, **config.con_conner)
+izzy = Intake(conner=conner, driver=driver, **config.izzy)
+wally = Wheels(driver=driver, **config.wally)
 
 
 timmy = 4
@@ -154,5 +154,5 @@ if __name__ == '__main__':
 
     archie = Autonomous()
     archie.run(ta)
-
+    pprint(m.agents)
 

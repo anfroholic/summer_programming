@@ -1,7 +1,8 @@
 class MM_Motor:
-    def __init__(self, name):
+    def __init__(self, name, can_id=99):
         self.name = name
         self.speed = 0
+        self.can_id = can_id
 
     def set(self, speed):
         self.speed = speed
@@ -11,7 +12,7 @@ class MM_Motor:
         print(f'actually setting motor to {self.speed}')
 
     def __repr__(self):
-        return f'the real {self.name} motor'
+        return f'the real {self.name} motor, and can_ID # {self.can_id}'
 
 class MM_Output:
     def __init__(self, name: str, state: bool, pin: int):
