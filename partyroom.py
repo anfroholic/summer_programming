@@ -28,7 +28,7 @@ izzy = Intake(conner=conner, driver=driver, **config.izzy)
 wally = Wheels(driver=driver, **config.wally)
 
 
-timmy = 4
+timmy = 6
 
 
 def print_it():
@@ -154,5 +154,5 @@ if __name__ == '__main__':
 
     archie = Autonomous()
     archie.run(ta)
-    pprint(m.agents)
+    # pprint(m.agents)
 

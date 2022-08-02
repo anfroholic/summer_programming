@@ -43,10 +43,10 @@ class CEO:
         self.agents[name] = {'self': agent}
         self.agents[name].update(**{'outputs': {}})
 
-    def check(self):
+    def check(self): # This is the teleopPeriodic function
         for agent in self.agents.values():
             agent['self'].check()
-            # agent.check()
+
 
     def rez(self):
         for agent in self.agents.values():
