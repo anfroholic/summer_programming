@@ -26,7 +26,7 @@ class Conveyor(Agent):
         """
         x = 5
         routine = [
-            lambda: self.set_motors(speed=-.4),
+            lambda: self.set_motors(speed=-.8),
             lambda: self.motor_1.reset_encoder(),
             lambda: self.motor_1.get_pos() > 5,
             lambda: self.set_motors(speed=0),
@@ -69,6 +69,7 @@ class Conveyor(Agent):
 
     def check(self):
         self.states[self.state]()
+        return None
 
     def __len__(self):
         return 0
@@ -76,3 +77,13 @@ class Conveyor(Agent):
     def sleep(self):
         self.state = "sleeping"
 
+    def whisper(self, msg):
+        # {'from': 'agent', 'msg': 'the message'}
+        print(f'doing {msg} right now')
+        if msg['from'] == 'izzy':
+            if msg['msg'] == 'sleep':
+                self.sleep()
+                print('I got my pjs on')
+            elif msg['msg'] == 'burp':
+                self.burp()
+                print('better get a napkin')

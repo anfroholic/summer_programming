@@ -47,7 +47,7 @@ False: wait
 """
 
 
-ta = [
+ta = [ #first ball pos1
     # dict(cmd=print_it),
     # lambda: print('it'),
     lambda: wally.drive(speed=.5, turn=.5),
@@ -57,7 +57,9 @@ ta = [
     lambda: timmy > 5,
     lambda: wally.drive(speed=.5, turn=.5),
     lambda: izzy.motor_1.set(speed=.5),
-    lambda: izzy.motor_1.set(speed=0)
+    lambda: izzy.motor_1.set(speed=0),
+    lambda: print('done!')
+
 ]
 # t1 = [
 #     dict(cmd=wally.drive, speed=.5, turn=.5),
@@ -152,7 +154,9 @@ if __name__ == '__main__':
     #         loop()
     name = {'name': 'archie'}
 
-    archie = Autonomous()
+    archie = Autonomous(mode='single_shot')
     archie.run(ta)
     # pprint(m.agents)
+
+    izzy.send_whisper()
 

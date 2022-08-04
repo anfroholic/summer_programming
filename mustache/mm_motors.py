@@ -8,7 +8,7 @@ class MM_Motor:
 
     def set(self, speed):
         self.speed = speed
-        print(f'super speed is {self.speed + 5}, is that fast?')
+        print(f'super speed is {self.speed}, is that fast?')
 
     def _set(self):
         print(f'actually setting motor to {self.speed}')

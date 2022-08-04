@@ -18,4 +18,8 @@ class Intake(Agent):
         super().check()
         self.call()
 
+    def send_whisper(self):
+        msg = {'from': 'izzy', 'msg': 'burp'}
+        self.conner.whisper(msg)
+
 
